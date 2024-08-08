@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: '#FFFFFF',
     padding: 30,
+    fontFamily : "Roboto"
   },
   header: {
     fontSize: 18,
@@ -72,25 +73,25 @@ const Ticket = ({ ticket }) => {
   return (
     <>
       <Text style={styles.ticketHeader}>{ticket.header}</Text>
-      <Text style={styles.ticketInfo}>Type: {ticket.type === 'airplane' ? 'Airplane' : 'Train'}</Text>
-      <Text style={styles.ticketInfo}>Departure: {ticket.departure}</Text>
-      <Text style={styles.ticketInfo}>Arrival: {ticket.arrival}</Text>
+      <Text style={styles.ticketInfo}>Тип: {ticket.type === 'airplane' ? 'Самолет' : 'Поезд'}</Text>
+      <Text style={styles.ticketInfo}>Отправление: {ticket.departure}</Text>
+      <Text style={styles.ticketInfo}>Прибытие: {ticket.arrival}</Text>
       <View style={styles.table}>
         <View style={styles.tableRow}>
           <View style={[styles.tableCol, styles.idCol]}>
-            <Text style={styles.tableHeader}>ID</Text>
+            <Text style={styles.tableHeader}>№</Text>
           </View>
           <View style={[styles.tableCol, styles.nameCol]}>
-            <Text style={styles.tableHeader}>Name</Text>
+            <Text style={styles.tableHeader}>Имя</Text>
           </View>
           <View style={[styles.tableCol, styles.birthdateCol]}>
-            <Text style={styles.tableHeader}>Birth Date</Text>
+            <Text style={styles.tableHeader}>Дата Рождения</Text>
           </View>
           <View style={[styles.tableCol, styles.passportCol]}>
-            <Text style={styles.tableHeader}>Passport ID</Text>
+            <Text style={styles.tableHeader}>Паспортные данные</Text>
           </View>
           <View style={[styles.tableCol, styles.contactNumberCol]}>
-            <Text style={styles.tableHeader}>Contact Number</Text>
+            <Text style={styles.tableHeader}>Контактный номер</Text>
           </View>
         </View>
         {ticket.passengers.map((passenger, index) => (

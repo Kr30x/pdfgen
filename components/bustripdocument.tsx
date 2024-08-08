@@ -1,13 +1,14 @@
 "use client"
 
 import React from 'react';
-import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
+import { Document, Page, Text, View, StyleSheet, Font } from '@react-pdf/renderer';
 
 const styles = StyleSheet.create({
   page: {
     flexDirection: 'column',
     backgroundColor: '#FFFFFF',
     padding: 30,
+    fontFamily : "Roboto"
   },
   header: {
     fontSize: 18,
@@ -66,6 +67,12 @@ const styles = StyleSheet.create({
   contactNumberCol: { width: '25%' },
 });
 
+Font.register({
+  family: "Roboto",
+  src:
+    "https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-medium-webfont.ttf"
+});
+
 const Bus = ({ bus }) => {
   return (
     <>
@@ -73,19 +80,19 @@ const Bus = ({ bus }) => {
       <View style={styles.table}>
         <View style={styles.tableRow}>
           <View style={[styles.tableCol, styles.idCol]}>
-            <Text style={styles.tableHeader}>ID</Text>
+            <Text style={styles.tableHeader}>№</Text>
           </View>
           <View style={[styles.tableCol, styles.nameCol]}>
-            <Text style={styles.tableHeader}>Name</Text>
+            <Text style={styles.tableHeader}>Имя</Text>
           </View>
           <View style={[styles.tableCol, styles.birthdateCol]}>
-            <Text style={styles.tableHeader}>Birth Date</Text>
+            <Text style={styles.tableHeader}>Дата Рождения</Text>
           </View>
           <View style={[styles.tableCol, styles.passportCol]}>
-            <Text style={styles.tableHeader}>Passport ID</Text>
+            <Text style={styles.tableHeader}>Паспорт</Text>
           </View>
           <View style={[styles.tableCol, styles.contactNumberCol]}>
-            <Text style={styles.tableHeader}>Contact Number</Text>
+            <Text style={styles.tableHeader}>Контактный номер</Text>
           </View>
         </View>
         {bus.passengers.map((passenger, index) => (
@@ -118,8 +125,8 @@ const PDFDocument = ({ header, date, roadTrack, buses }) => {
       {buses.map((bus, index) => (
         <Page key={index} size="A4" style={styles.page}>
           <Text style={styles.header}>{header}</Text>
-          <Text style={styles.subHeader}>Date: {date}</Text>
-          <Text style={styles.subHeader}>Road Track: {roadTrack}</Text>
+          <Text style={styles.subHeader}>Дата: {date}</Text>
+          <Text style={styles.subHeader}>Маршрут: {roadTrack}</Text>
           <Bus bus={bus} />
         </Page>
       ))}
