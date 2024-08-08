@@ -175,6 +175,11 @@ const TicketOrderPDFGenerator = () => {
     setIsEditTicketDialogOpen(false);
   };
 
+  const [isClient, setIsClient] = useState(false)
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+  
   return (
     <div className="min-h-screen bg-gray-100 flex">
       {/* Sidebar */}
@@ -200,6 +205,7 @@ const TicketOrderPDFGenerator = () => {
             <Database className="h-6 w-6" />
           </Button>
         </Link>
+        <>{isClient ? 
         <PDFDownloadLink
           document={
             <PDFDocument 
@@ -231,6 +237,8 @@ const TicketOrderPDFGenerator = () => {
             </Button>
           )}
         </PDFDownloadLink>
+        : null }
+        </>
       </div>
 
       {/* Main content */}

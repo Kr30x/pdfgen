@@ -180,7 +180,11 @@ const BusTripPDFGenerator = () => {
   };
 
   
-
+  const [isClient, setIsClient] = useState(false)
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+  
   return (
     <div className="min-h-screen bg-gray-100 flex">
       {/* Sidebar */}
@@ -206,6 +210,7 @@ const BusTripPDFGenerator = () => {
             <Database className="h-6 w-6" />
           </Button>
         </Link>
+        <>{isClient ? 
         <PDFDownloadLink
           document={
             <PDFDocument 
@@ -238,6 +243,7 @@ const BusTripPDFGenerator = () => {
             </Button>
           )}
         </PDFDownloadLink>
+        :null}</>
       </div>
 
       {/* Main content */}
