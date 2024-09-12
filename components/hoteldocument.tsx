@@ -1,5 +1,6 @@
 import React from 'react';
 import { Document, Page, Text, View, StyleSheet, Font } from '@react-pdf/renderer';
+import { convertToRu } from '@/app/utils/convertDate';
 
 const styles = StyleSheet.create({
   page: {
@@ -99,7 +100,7 @@ const Room = ({ room, roomIndex }) => {
               <Text style={styles.tableCell}>{person.passport || ''}</Text>
             </View>
             <View style={[styles.tableCol, styles.birthDateCol]}>
-              <Text style={styles.tableCell}>{person.birthdate || ''}</Text>
+              <Text style={styles.tableCell}>{convertToRu(person.birthdate) || ''}</Text>
             </View>
           </View>
         );

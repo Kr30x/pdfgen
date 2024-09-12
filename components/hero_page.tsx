@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import * as XLSX from 'xlsx';
 import { Hotel, Car, Ticket } from 'lucide-react';
 import Link from 'next/link';
+import { convertToRu } from '@/app/utils/convertDate';
 
 const SchoolDatabase = () => {
   const [people, setPeople] = useState([]);
@@ -263,7 +264,7 @@ const SchoolDatabase = () => {
                   <tr key={person.id}>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{person.name}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.passport}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.birthdate}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{convertToRu(person.birthdate)}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.contactnumber}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.type}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.type === "student" ? person.grade : "-"}</td>
